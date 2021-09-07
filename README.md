@@ -1,4 +1,5 @@
-Problem Definition
+#Problem Definition
+
 Given New York Taxi trips answer the questions below to identify each problematic data and
 prepare the reporting queries for each item requested below;
 
@@ -22,12 +23,9 @@ prepare the reporting queries for each item requested below;
 			ii. What are the most erroneous routes ?
 			
 			
-Database of SQL Practices
-https://console.cloud.google.com/bigquery?project=ml-workshop-195114&folder&
-organizationId&p=bigquery-public-data&d=new_york_taxi_trips&t=tlc_green_trips
-_2014&page=table
+[Environment](https://console.cloud.google.com/bigquery?project=ml-workshop-195114&folder&organizationId&p=bigquery-public-data&d=new_york_taxi_trips&t=tlc_green_trips_2014&page=table)
 
-1. Case Descriptions						
+1. #Statements						
 
 		a. Rule 1: A taxi can travel only 0.278 miles in 10 seconds if it travels 100 mph as max. speed.
 		
@@ -44,7 +42,7 @@ _2014&page=table
 		
 		
 		
-2. Erroneous Data Conditions That I Detected;	
+2. #Erroneous Data Conditions That I Detected;	
 
 
 		Are there any trips with less than 1 passenger?
@@ -58,22 +56,25 @@ _2014&page=table
 			
 			
 			
-3. Find and Clear Any Erroneous Data
+3. #a. Find and Clear Any Erroneous Data
 
-	Libraries for Writing API Codes: 
+	##Libraries for Writing API Codes: 
+	```bash
+		pip install fastapi
+		pip install uvicorn
+		pip install tabulate (as a table view in cmd)
+	```	
 
-		$ pip install fastapi
-		$ pip install uvicorn
-		$ pip install tabulate (as a table view in cmd)
-		
-
-	Using BigQuery Client:
+	##Using BigQuery Client:
 
 		Library:
-			$ pip install google-cloud-bigquery
-			
+		```bash
+			pip install google-cloud-bigquery
+		```	
 		
-		Authentication Settings (Command Line):
+		##Authentication Settings (Command Line):
+		
+		[Guide](https://cloud.google.com/bigquery/docs/reference/libraries#command-line)
 
 		Service account creating;
 			gcloud iam service-accounts create emindoganca
@@ -86,3 +87,12 @@ _2014&page=table
 
 		Environment Variable Settings
 			set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Emin\AppData\Local\Google\Cloud SDK\eminproject.json"
+
+3. b.i. This case has been changed as "What are the most erroneous Hexagon?"
+
+		[Guide](https://h3geo.org/docs/quickstart/)
+		
+		Library:
+		```bash
+			pip install h3
+		```
