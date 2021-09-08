@@ -49,66 +49,67 @@ Environment: [BigQuery](https://console.cloud.google.com/bigquery?project=ml-wor
 
 ```python
 		
-		# Are there any trips with less than 1 passenger?
-		
-			 
-			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE passenger_count<1;
-			
-		
-		# Are there any rows with the TOTAL_AMOUNT column less than 0? 
-		
-			
-			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE total_amount <0;
-			
-			
-		# Rows with a fare_amount column greater than 0 even though the TRIP_DISTANCE=0;
-		
-			
-			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE trip_distance=0 AND fare_amount>0;
+# Are there any trips with less than 1 passenger?
+
+	 
+	SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE passenger_count<1;
+	
+
+# Are there any rows with the TOTAL_AMOUNT column less than 0? 
+
+	
+	SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE total_amount <0;
+	
+	
+# Rows with a fare_amount column greater than 0 even though the TRIP_DISTANCE=0;
+
+	
+	SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE trip_distance=0 AND fare_amount>0;
 			
 ```
 			
 			
 # 3. a. Find and Clear Any Erroneous Data
 
-	## Libraries for Writing API Codes: 
+## Libraries for Writing API Codes: 
+
+```bash
+	pip install fastapi
+	pip install uvicorn
+	pip install tabulate (as a table view in cmd)
+```	
+
+## Using BigQuery Client:
+
+Library:
+
+```bash
+	pip install google-cloud-bigquery
+```	
+
+## Authentication Settings (Command Line):
+
+[Guide](https://cloud.google.com/bigquery/docs/reference/libraries#command-line)
+
+```bash
+rem Service account creating;
+	gcloud iam service-accounts create emindoganca
+
+rem Granting Permissions to the Service Account;
+	gcloud projects add-iam-policy-binding spotlight-analytics-280723 --member="serviceAccount:emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com" --role="roles/owner"
 	
-	```bash
-		pip install fastapi
-		pip install uvicorn
-		pip install tabulate (as a table view in cmd)
-	```	
+rem Key File Generating;
+	gcloud iam service-accounts keys create eminproject.json --iam-account=emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com
 
-	## Using BigQuery Client:
-
-		Library:
-		
-		```bash
-			pip install google-cloud-bigquery
-		```	
-		
-		## Authentication Settings (Command Line):
-		
-		[Guide](https://cloud.google.com/bigquery/docs/reference/libraries#command-line)
-
-		Service account creating;
-			gcloud iam service-accounts create emindoganca
-
-		Granting Permissions to the Service Account;
-			gcloud projects add-iam-policy-binding spotlight-analytics-280723 --member="serviceAccount:emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com" --role="roles/owner"
-			
-		Key File Generating;
-			gcloud iam service-accounts keys create eminproject.json --iam-account=emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com
-
-		Environment Variable Settings
-			set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Emin\AppData\Local\Google\Cloud SDK\eminproject.json"
-
+rem Environment Variable Settings
+	set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Emin\AppData\Local\Google\Cloud SDK\eminproject.json"
+```
 ## 3. b.i. This case has been changed as "What are the most erroneous Hexagon?"
 
-		[Guide](https://h3geo.org/docs/quickstart/)
-		
-		Library:
-		
-		```bash
-			pip install h3
-		```
+[Guide](https://h3geo.org/docs/quickstart/)
+
+Library:
+
+```bash
+	pip install h3
+```
