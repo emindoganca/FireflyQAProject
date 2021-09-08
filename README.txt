@@ -25,7 +25,7 @@ prepare the reporting queries for each item requested below;
 			
 [Environment](https://console.cloud.google.com/bigquery?project=ml-workshop-195114&folder&organizationId&p=bigquery-public-data&d=new_york_taxi_trips&t=tlc_green_trips_2014&page=table)
 
-1. #Statements						
+#1. Statements						
 
 		a. Rule 1: A taxi can travel only 0.278 miles in 10 seconds if it travels 100 mph as max. speed.
 		
