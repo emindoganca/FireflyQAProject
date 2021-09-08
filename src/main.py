@@ -2,7 +2,6 @@ import uvicorn
 from fastapi import FastAPI, APIRouter
 import datetime
 from google.cloud import bigquery
-from tabulate import tabulate
 import h3
 
 router = APIRouter()

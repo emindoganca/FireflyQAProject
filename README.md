@@ -74,9 +74,9 @@ Environment: [BigQuery](https://console.cloud.google.com/bigquery?project=ml-wor
 ## Libraries for Writing API Codes: 
 
 ```bash
-	pip install fastapi
-	pip install uvicorn
-	pip install tabulate (as a table view in cmd)
+pip install fastapi
+pip install uvicorn
+pip install tabulate (as a table view in cmd)
 ```	
 
 ## Using BigQuery Client:
@@ -84,32 +84,48 @@ Environment: [BigQuery](https://console.cloud.google.com/bigquery?project=ml-wor
 Library:
 
 ```bash
-	pip install google-cloud-bigquery
+pip install google-cloud-bigquery
 ```	
 
 ## Authentication Settings (Command Line):
 
-[Guide](https://cloud.google.com/bigquery/docs/reference/libraries#command-line)
+BigQuery Client Authentication [Guide](https://cloud.google.com/bigquery/docs/reference/libraries#command-line)
 
 ```bash
-rem Service account creating;
-	gcloud iam service-accounts create emindoganca
+Service account creating;
+$gcloud iam service-accounts create emindoganca
 
-rem Granting Permissions to the Service Account;
-	gcloud projects add-iam-policy-binding spotlight-analytics-280723 --member="serviceAccount:emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com" --role="roles/owner"
+Granting Permissions to the Service Account;
+$gcloud projects add-iam-policy-binding spotlight-analytics-280723--member="serviceAccount:emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com" --role="roles/owner"
 	
-rem Key File Generating;
-	gcloud iam service-accounts keys create eminproject.json --iam-account=emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com
+Key File Generating;
+$gcloud iam service-accounts keys create eminproject.json --iam-account=emindoganca@spotlight-analytics-280723.iam.gserviceaccount.com
 
-rem Environment Variable Settings
-	set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Emin\AppData\Local\Google\Cloud SDK\eminproject.json"
+Environment Variable Settings
+$set GOOGLE_APPLICATION_CREDENTIALS="C:\Users\Emin\AppData\Local\Google\Cloud SDK\eminproject.json"
 ```
-## 3. b.i. This case has been changed as "What are the most erroneous Hexagon?"
+# 3. b. i. This case has been changed as "What are the most erroneous Hexagon?"
 
-[Guide](https://h3geo.org/docs/quickstart/)
+H3 [Guide](https://h3geo.org/docs/quickstart/)
 
 Library:
 
 ```bash
-	pip install h3
+pip install h3
 ```
+
+# How to run the project?
+
+At first you should do BigQuery Client Authentication.
+
+Run the following command after cloning the project to local.
+
+```bash
+python main.py
+```
+
+Finally visit the following address.
+
+http://localhost:8080/hello/test-case-1a
+
+
