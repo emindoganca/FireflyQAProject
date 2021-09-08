@@ -19,11 +19,10 @@ prepare the reporting queries for each item requested below;
 		execute them using the python API template (python bigQuery Client is a good
 		starting point).(unit-tests,integration tests to maximize the test coverage)
 		b. Using the same API code can you also answer the following questions;
-			i. What are the most erroneous vehicles ?
-			ii. What are the most erroneous routes ?
+			i. What are the most erroneous vehicles?
+			ii. What are the most erroneous routes?
 			
 			
-[Environment](https://console.cloud.google.com/bigquery?project=ml-workshop-195114&folder&organizationId&p=bigquery-public-data&d=new_york_taxi_trips&t=tlc_green_trips_2014&page=table)
 
 # 1. Statements						
 
