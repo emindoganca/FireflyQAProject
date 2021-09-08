@@ -22,28 +22,32 @@ prepare the reporting queries for each item requested below;
 			i. What are the most erroneous vehicles?
 			ii. What are the most erroneous routes?
 			
-			
+
+# Quick Start		
+
+Environment: [BigQuery](https://console.cloud.google.com/bigquery?project=ml-workshop-195114&folder&organizationId&p=bigquery-public-data&d=new_york_taxi_trips&t=tlc_green_trips_2014&page=table)
 
 # 1. Statements						
 
-		a. Rule 1: A taxi can travel only 0.278 miles in 10 seconds if it travels 100 mph as max. speed.
+```python
+		#a. Rule 1: A taxi can travel only 0.278 miles in 10 seconds if it travels 100 mph as max. speed.
 		
 			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` where 1=1 AND DATETIME_DIFF(dropoff_datetime, pickup_datetime, second)=10 AND trip_distance>0.278 ORDER BY trip_distance DESC;
 		
-		b. Rule 2: This case has been cancelled because there is no unique value that defines the vehicle. 
+		#b. Rule 2: This case has been cancelled because there is no unique value that defines the vehicle. 
 		
-		c. Rule 3: It is an invalid row if pickup_datetime greater than dropoff_datetime.
+		#c. Rule 3: It is an invalid row if pickup_datetime greater than dropoff_datetime.
 			
 			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE dropoff_datetime < pickup_datetime;
 			
-		d. Rule 4: 
-		
+		#d. Rule 4: 
+```		
 		
 		
 		
 # 2. Erroneous Data Conditions That I Detected	
 
-		```python
+```python
 		
 		# Are there any trips with less than 1 passenger?
 		
@@ -62,7 +66,7 @@ prepare the reporting queries for each item requested below;
 			
 			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE trip_distance=0 AND fare_amount>0;
 			
-		```
+```
 			
 			
 # 3. a. Find and Clear Any Erroneous Data
