@@ -44,24 +44,26 @@ prepare the reporting queries for each item requested below;
 		
 # 2. Erroneous Data Conditions That I Detected	
 
-
-		Are there any trips with less than 1 passenger?
+		```python
 		
-			```python 
+		# Are there any trips with less than 1 passenger?
+		
+			 
 			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE passenger_count<1;
-			```
-		
-		Are there any rows with the TOTAL_AMOUNT column less than 0? 
-		
-			```python
-			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE total_amount <0;
-			```
 			
-		Rows with a fare_amount column greater than 0 even though the TRIP_DISTANCE=0;
 		
-			```python
+		# Are there any rows with the TOTAL_AMOUNT column less than 0? 
+		
+			
+			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE total_amount <0;
+			
+			
+		# Rows with a fare_amount column greater than 0 even though the TRIP_DISTANCE=0;
+		
+			
 			SELECT * FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` WHERE trip_distance=0 AND fare_amount>0;
-			```
+			
+		```
 			
 			
 # 3. a. Find and Clear Any Erroneous Data
