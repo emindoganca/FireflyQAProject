@@ -42,7 +42,7 @@ prepare the reporting queries for each item requested below;
 		
 		
 		
-# 2. Erroneous Data Conditions That I Detected;	
+# 2. Erroneous Data Conditions That I Detected	
 
 
 		Are there any trips with less than 1 passenger?
